@@ -14,6 +14,9 @@ public class Main {
     public static PayJFrame fpay;
     public static HistoryShoppingJFrame fhistory;
     public static ShoppingCartJFrame fshoppingcart;
+    public static ProductsFrame fproduct;
+    public static ClientsFrame fclients;
+    public static EmployeesFrame femployees;
     public static ControllerForm control;
 
     public static void main(String[] args) {
@@ -23,9 +26,12 @@ public class Main {
         floginE = new LoginEmployeeJFrame();
         fdashControllerE = new DashboardControllUser();
         fpay = new PayJFrame();
-        fhistory=new HistoryShoppingJFrame();
+        fhistory = new HistoryShoppingJFrame();
         control = new ControllerForm();
-        fshoppingcart= new ShoppingCartJFrame();
+        fshoppingcart = new ShoppingCartJFrame();
+        fproduct = new ProductsFrame();
+        femployees = new EmployeesFrame();
+        fclients = new ClientsFrame();
 
         control.controllerLogin(flogin);
         control.controllerAccount(fAccount);
@@ -36,5 +42,8 @@ public class Main {
         control.controllerPay(fpay);
         control.controllerShopping(fshoppingcart);
         control.controllerHistory(fhistory);
+        control.controllerProducts(fproduct);
+        control.controllerEmployees(femployees);
+        control.controllerClients(fclients);
     }
 }

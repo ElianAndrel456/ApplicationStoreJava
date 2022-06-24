@@ -3,10 +3,9 @@ package models;
 public class Customer extends Person {
     private int id_customer;
     private String username_customer, password_customer;
-    private static int count = 0;
 
     public Customer() {
-        count++;
+
     }
 
     public int getId_customer() {
@@ -33,5 +32,14 @@ public class Customer extends Person {
         this.password_customer = password_customer;
     }
 
+    public Object[] registroClient() {
+        Object[] fila = { id_customer, getFirstName(), getEdad(), getDni(), getEmail(), getDireccion() };
+        return fila;
+    }
+
+    public Object[] registroTrabajador() {
+        Object[] fila = { id_customer, getFirstName(), getUsername_customer() };
+        return fila;
+    }
 
 }

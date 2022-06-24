@@ -1,6 +1,19 @@
 {
     "java.project.referencedLibraries": [
         "lib/**/*.jar",
-        "c:\\Users\\elian\\Downloads\\mysql-connector-java-8.0.27.jar"
+        "c:\\Users\\elian\\Downloads\\mysql-connector-java-8.0.27.jar",
+        "c:\\Users\\elian\\Downloads\\jcalendar-1.4.jar",
+        "c:\\Users\\elian\\Downloads\\itext5-xmlworker-5.5.12-javadoc.jar",
+        "c:\\Users\\elian\\Downloads\\itext5-itextpdf-5.5.12-javadoc.jar",
+        "c:\\Users\\elian\\Downloads\\itext5-itext-xtra-5.5.12-javadoc.jar",
+        "c:\\Users\\elian\\Downloads\\itext5-itext-pdfa-5.5.12-javadoc.jar",
+        "c:\\Users\\elian\\Downloads\\itext5-xmlworker-5.5.12-sources.jar",
+        "c:\\Users\\elian\\Downloads\\itext5-xmlworker-5.5.12.jar",
+        "c:\\Users\\elian\\Downloads\\itext5-itextpdf-5.5.12-sources.jar",
+        "c:\\Users\\elian\\Downloads\\itext5-itextpdf-5.5.12.jar",
+        "c:\\Users\\elian\\Downloads\\itext5-itext-xtra-5.5.12-sources.jar",
+        "c:\\Users\\elian\\Downloads\\itext5-itext-xtra-5.5.12.jar",
+        "c:\\Users\\elian\\Downloads\\itext5-itext-pdfa-5.5.12-sources.jar",
+        "c:\\Users\\elian\\Downloads\\itext5-itext-pdfa-5.5.12.jar"
     ]
 }
