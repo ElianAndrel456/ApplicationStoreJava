@@ -38,8 +38,6 @@ public class Qry {
             ps.setBytes(1, img);
             ps.executeUpdate();
         } catch (Exception e) {
-            System.out.println("Error : ");
-            System.out.println(e);
         }
     }
 
@@ -67,7 +65,6 @@ public class Qry {
             ps.setInt(1, id);
             ps.executeUpdate();
         } catch (Exception e) {
-            System.out.println(e);
         }
     }
 
@@ -82,7 +79,6 @@ public class Qry {
             ps.setString(5, cat);
             ps.executeUpdate();
         } catch (Exception e) {
-            System.out.println(e);
         }
     }
 
@@ -99,7 +95,6 @@ public class Qry {
             ps.setBytes(6, img);
             ps.executeUpdate();
         } catch (Exception e) {
-            System.out.println(e);
         }
     }
 
@@ -132,7 +127,6 @@ public class Qry {
         } catch (Exception e) {
             // TODO: handle exception
         }
-        System.out.println("Result :" + img);
         return img;
     }
 
@@ -169,15 +163,12 @@ public class Qry {
     }
 
     public void updateDashE(String pedido, String state) {
-        System.out.println("hola" + pedido);
-        System.out.println(state);
         String sql = "UPDATE carrito SET estado=? where pedido='" + pedido + "'";
         try {
             PreparedStatement ps = cx.prepareStatement(sql);
             ps.setString(1, state);
             ps.executeUpdate();
         } catch (Exception e) {
-            System.out.println(e);
         }
 
     }
@@ -216,7 +207,6 @@ public class Qry {
             }
 
         } catch (Exception e) {
-            System.out.println(e);
         }
         return sc;
     }
@@ -246,7 +236,6 @@ public class Qry {
             }
 
         } catch (Exception e) {
-            System.out.println(e);
         }
         return sc;
     }

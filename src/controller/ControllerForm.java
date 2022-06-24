@@ -37,7 +37,6 @@ import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.Font.FontFamily;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
-import com.itextpdf.text.pdf.security.CertificateInfo.X500Name;
 
 import models.Customer;
 import models.Product;
@@ -206,7 +205,7 @@ public class ControllerForm implements ActionListener, MouseInputListener {
     public void controllerDashboardE(DashboardControllUser fdashControllerE) {
         this.formDashboardControllE = fdashControllerE;
         formDashboardControllE.setTitle("Main Dashboard");
-        formDashboardControllE.setVisible(true);
+        formDashboardControllE.setVisible(false);
         formDashboardControllE.setLocationRelativeTo(null);
         formDashboardControllE.lblProducts.addMouseListener(this);
         formDashboardControllE.lblClientes.addMouseListener(this);
@@ -236,7 +235,6 @@ public class ControllerForm implements ActionListener, MouseInputListener {
                     p.getFecha(),
                     p.getEstado()));
         }
-
     }
 
     public void controllerRegister(RegisterJFrame fregister) {
@@ -276,7 +274,6 @@ public class ControllerForm implements ActionListener, MouseInputListener {
         formDashboard.btnFilter.addActionListener(this);
         formDashboard.btnAddCart.addActionListener(this);
 
-        System.out.println(q.getImageIdClient() == null);
         ImageIcon image = new ImageIcon("src/assets/usericon.png");
         ImageIcon icono = new ImageIcon(image.getImage().getScaledInstance(formDashboard.lblImageUser.getWidth(),
                 formDashboard.lblImageUser.getHeight(), Image.SCALE_DEFAULT));
@@ -333,7 +330,6 @@ public class ControllerForm implements ActionListener, MouseInputListener {
                     this.formDashboard.lblImageUser.setIcon(mIcon);
 
                 } catch (Exception ex) {
-                    System.out.println(ex);
                 }
             }
 
@@ -475,7 +471,7 @@ public class ControllerForm implements ActionListener, MouseInputListener {
         }
         if (e.getSource() == formDashboard.btnFilter) {
             String o = formDashboard.boxFilter.getSelectedItem().toString().toLowerCase();
-            System.out.println(o);
+
             DefaultTableModel tableModel = new DefaultTableModel();
             tableModel.addColumn("Id");
             tableModel.addColumn("Producto");
@@ -488,7 +484,6 @@ public class ControllerForm implements ActionListener, MouseInputListener {
             while (iterator.hasNext()) {
                 Product p = iterator.next();
                 tableModel.addRow(p.registro());
-                System.out.println(p.imprimirDatos());
             }
         }
         if (e.getSource() == formDashboard.btnAddCart) {
@@ -539,7 +534,6 @@ public class ControllerForm implements ActionListener, MouseInputListener {
             int month = calendario.get(Calendar.MONTH);
             int year = calendario.get(Calendar.YEAR);
             Date fecha = new Date(year - 1900, month, day);
-            System.out.println(sday);
             String dia = "";
             String mes = "";
 
@@ -776,7 +770,6 @@ public class ControllerForm implements ActionListener, MouseInputListener {
                 q.agregarProducto(id, name, description, price, cat, img);
 
             } catch (Exception ex) {
-                System.out.println(ex);
             }
             DefaultTableModel tableModel = new DefaultTableModel();
             tableModel.addColumn("Id");
@@ -795,8 +788,6 @@ public class ControllerForm implements ActionListener, MouseInputListener {
         if (e.getSource() == formProducts.btnDeleteProduct) {
             int id = Integer.parseInt(formProducts.txtIdProducts.getText());
             q.deleteProducto(id);
-            System.out.println(id);
-            System.out.println("se borro");
             DefaultTableModel tableModel = new DefaultTableModel();
             tableModel.addColumn("Id");
             tableModel.addColumn("Producto");
@@ -826,7 +817,7 @@ public class ControllerForm implements ActionListener, MouseInputListener {
                     String cat = formProducts.cboxCategoryProduct.getSelectedItem().toString();
                     byte[] img = icono;
                     q.updateProductsWithImage(id, name, description, price, cat, img);
-                    System.out.println("Se hizo el update");
+
                 } else {
                     int id = Integer.parseInt(formProducts.txtIdProducts.getText());
                     String name = formProducts.txtNameProduct.getText();
@@ -834,7 +825,6 @@ public class ControllerForm implements ActionListener, MouseInputListener {
                     double price = Double.parseDouble(formProducts.txtPrice.getText());
                     String cat = formProducts.cboxCategoryProduct.getSelectedItem().toString();
                     q.updateProducts(id, name, description, price, cat);
-                    System.out.println("Se hizo el update");
                 }
             } catch (Exception exception) {
             }
@@ -909,7 +899,6 @@ public class ControllerForm implements ActionListener, MouseInputListener {
             }
             try {
                 File image = new File(route);
-                System.out.println(route);
                 byte[] icono = new byte[(int) image.length()];
                 InputStream input = new FileInputStream(image);
                 input.read(icono);
@@ -932,10 +921,10 @@ public class ControllerForm implements ActionListener, MouseInputListener {
             String categoria = formDashboard.tableProducts.getValueAt(c, 3).toString();
 
             if (categoria.length() > 6) {
-                System.out.println("Se presiono categoria zapato||pantalones");
                 if (formDashboard.boxTalla.getItemCount() > 0) {
                     formDashboard.boxTalla.removeAllItems();
                 }
+                formDashboard.boxTalla.addItem("36");
                 formDashboard.boxTalla.addItem("38");
                 formDashboard.boxTalla.addItem("40");
                 formDashboard.boxTalla.addItem("42");
@@ -943,9 +932,11 @@ public class ControllerForm implements ActionListener, MouseInputListener {
                 if (formDashboard.boxTalla.getItemCount() > 0) {
                     formDashboard.boxTalla.removeAllItems();
                 }
+                formDashboard.boxTalla.addItem("xs");
                 formDashboard.boxTalla.addItem("s");
                 formDashboard.boxTalla.addItem("m");
                 formDashboard.boxTalla.addItem("x");
+                formDashboard.boxTalla.addItem("xl");
 
             } else {
             }
@@ -960,14 +951,13 @@ public class ControllerForm implements ActionListener, MouseInputListener {
                 this.formDashboard.lblImageProduct.setIcon(mIcon);
 
             } catch (Exception ex) {
-                System.out.println(ex);
             }
 
         }
         if (e.getSource() == formDashboardControllE.tblVentas) {
             int c = formDashboardControllE.tblVentas.getSelectedRow();
             formDashboardControllE.txtB.setText(formDashboardControllE.tblVentas.getValueAt(c, 1).toString());
-            System.out.println(formDashboardControllE.tblVentas.getValueAt(c, 1).toString());
+
         }
 
         if (e.getSource() == formProducts.tblProducts) {
@@ -986,7 +976,6 @@ public class ControllerForm implements ActionListener, MouseInputListener {
                         bi.getScaledInstance(formProducts.lblImage.getWidth(), formProducts.lblImage.getHeight(), 0));
                 this.formProducts.lblImage.setIcon(mIcon);
             } catch (Exception ex) {
-                System.out.println(ex);
             }
 
         }

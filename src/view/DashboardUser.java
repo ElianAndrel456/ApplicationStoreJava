@@ -157,7 +157,7 @@ public class DashboardUser extends javax.swing.JFrame {
         btnFilter.setText("Filter");
 
         boxFilter.setFont(new java.awt.Font("Bauhaus 93", 0, 14)); // NOI18N
-        boxFilter.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "todos", "gorros", "polos", "pantalones", "zapatos", " " }));
+        boxFilter.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "todos", "polos", "camisas", "chompas", "casacas", "jeans", "pantalones", "shorts", "pijamas" }));
         boxFilter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 boxFilterActionPerformed(evt);
